@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hortùs - Restaurant Gastronomique Toulouse | Cuisine des Suds</title>
+    <meta name="description" content="Restaurant Hortùs à Toulouse - Cuisine des Suds créative et responsable par le Chef Clément Lessoud. Découvrez nos menus de terroir méditerranéen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5d42;
+            --secondary: #d4a762;
+            --light: #f8f5f0;
+            --dark: #1a1a1a;
+            --text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--light);
+            text-decoration: none;
+        }
+        
+        header.scrolled .logo {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        header.scrolled nav ul li a {
+            color: var(--dark);
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        header.scrolled .mobile-menu-btn {
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://hortus-toulouse.fr/wp-content/uploads/2024/05/Hortus-restaurant-toulouse-1653.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 72px;
+            margin-bottom: 20px;
+            color: white;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image .decoration {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 10px solid var(--secondary);
+            top: -20px;
+            left: -20px;
+            z-index: -1;
+        }
+        
+        /* Philosophy Section */
+        .philosophy {
+            background-color: var(--primary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .philosophy .section-title h2 {
+            color: white;
+        }
+        
+        .philosophy-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .philosophy-text {
+            flex: 1;
+        }
+        
+        .philosophy-text h3 {
+            color: var(--secondary);
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .philosophy-image {
+            flex: 1;
+        }
+        
+        .philosophy-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .philosophy-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .philosophy-item {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .philosophy-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .philosophy-item i {
+            font-size: 40px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .philosophy-item h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        /* Chef Section */
+        .chef-section {
+            position: relative;
+        }
+        
+        .chef-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .chef-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .chef-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .chef-image .signature {
+            position: absolute;
+            bottom: -30px;
+            right: 30px;
+            width: 150px;
+            opacity: 0.8;
+        }
+        
+        .chef-text {
+            flex: 1;
+        }
+        
+        .chef-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        /* Menu Section */
+        .menu-section {
+            background-color: var(--light);
+        }
+        
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .menu-tab {
+            padding: 10px 25px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .menu-tab.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .menu-tab:hover {
+            color: var(--primary);
+        }
+        
+        .menu-items {
+            display: none;
+        }
+        
+        .menu-items.active {
+            display: block;
+        }
+        
+        .menu-category {
+            margin-bottom: 50px;
+        }
+        
+        .menu-category h4 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            color: var(--primary);
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-item-name {
+            flex: 2;
+        }
+        
+        .menu-item-name h5 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .menu-item-description {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .menu-item-price {
+            flex: 1;
+            text-align: right;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 1/1;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(42, 93, 66, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item .overlay i {
+            color: white;
+            font-size: 30px;
+        }
+        
+        /* Reservation Section */
+        .reservation-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://hortus-toulouse.fr/wp-content/uploads/2024/05/Hortus-restaurant-toulouse-1670.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .reservation-section .section-title h2 {
+            color: white;
+        }
+        
+        .reservation-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h4:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .opening-hours {
+            list-style: none;
+        }
+        
+        .opening-hours li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content, .philosophy-content, .chef-content {
+                flex-direction: column;
+            }
+            
+            .philosophy-items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 60px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                padding: 30px;
+                transition: right 0.3s;
+                z-index: 1001;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                margin-top: 50px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            nav ul li a {
+                color: var(--dark);
+            }
+            
+            .menu-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .menu-tab {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .philosophy-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Hortùs</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">Notre Histoire</a></li>
+                    <li><a href="#philosophy">Philosophie</a></li>
+                    <li><a href="#chef">Le Chef</a></li>
+                    <li><a href="#menu">Menus</a></li>
+                    <li><a href="#reservation">Réservation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Cuisine des Suds</h1>
+            <p>Une expérience gastronomique inspirée des terroirs du Sud de la France, où chaque plat raconte une histoire.</p>
+            <div>
+                <a href="#reservation" class="btn">Réserver une table</a>
+                <a href="#menu" class="btn btn-outline">Découvrir les menus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Histoire</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Hortùs, le jardin des saveurs</h3>
+                    <p>Niché au cœur de Toulouse, dans le quartier historique des Carmes, Hortùs est bien plus qu'un restaurant - c'est une ode aux terroirs du Sud de la France. Notre nom, tiré du latin "Hortus" signifiant jardin, reflète notre engagement envers une cuisine ancrée dans son territoire, où chaque ingrédient est soigneusement sélectionné pour sa qualité et son authenticité.</p>
+                    <p>Du Sud-Ouest natal aux embruns de la côte basque, jusqu'au soleil brûlant de Marseille, notre cuisine rassemble, elle rassure autant qu'elle bouscule. Elle appelle aux souvenirs, aux émotions : les prés verdoyants du Pays Basque, l'art de vivre toulousain, l'odeur de la garrigue en Provence.</p>
+                    <p>À travers une approche moderne et responsable, le Chef Clément Lessoud et son équipe vous invitent à un voyage sensoriel où tradition et innovation se rencontrent harmonieusement.</p>
+                </div>
+                <div class="about-image">
+                    <div class="decoration"></div>
+                    <img src="https://hortus-toulouse.fr/wp-content/uploads/2024/05/Hortus-restaurant-toulouse-1644.jpg" alt="Intérieur du restaurant Hortùs">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="section philosophy" id="philosophy">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Philosophie</h2>
+            </div>
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h3>Une cuisine responsable</h3>
+                    <p>Notre engagement pour une cuisine responsable se reflète dans chaque plat, à travers le choix des ingrédients et la manière dont ils sont préparés. En choisissant des produits locaux et de saison, nous participons à la préservation des terroirs et à la réduction de l'empreinte carbone liée à l'alimentation.</p>
+                    <p>En limitant les protéines animales, nous contribuons également à la réduction de l'impact environnemental de l'élevage intensif, tout en offrant une cuisine saine et équilibrée. Enfin, en mettant en valeur des produits méconnus ou oubliés, nous participons à la préservation de la diversité culinaire et à la valorisation des savoir-faire locaux.</p>
+                </div>
+                <div class="philosophy-image">
+                    <img src="https://hortus-toulouse.fr/wp-content/uploads/2022/10/Hortus-Toulouse.jpg" alt="Présentation de plats chez Hortùs">
+                </div>
+            </div>
+            <div class="philosophy-items">
+                <div class="philosophy-item">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Produits Locaux</h4>
+                    <p>Partnerships with local producers to ensure the freshest seasonal ingredients</p>
+                </div>
+                <div class="philosophy-item">
+                    <i class="fas fa-seedling"></i>
+                    <h4>Agriculture Durable</h4>
+                    <p>Support for sustainable farming practices that respect the environment</p>
+                </div>
+                <div class="philosophy-item">
+                    <i class="fas fa-recycle"></i>
+                    <h4>Zéro Déchet</h4>
+                    <p>Minimizing food waste through creative use of all parts of ingredients</p>
+                </div>
+                <div class="philosophy-item">
+                    <i class="fas fa-heart"></i>
+                    <h4>Santé</h4>
+                    <p>A balanced approach to nutrition without compromising on taste</p>
+                </div>
+                <div class="philosophy-item">
+                    <i class="fas fa-history"></i>
+                    <h4>Tradition</h4>
+                    <p>Preserving culinary heritage through forgotten techniques and recipes</p>
+                </div>
+                <div class="philosophy-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Innovation</h4>
+                    <p>Constant research to reinvent southern French cuisine for modern palates</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef Section -->
+    <section class="section chef-section" id="chef">
+        <div class="container">
+            <div class="section-title">
+                <h2>Le Chef</h2>
+            </div>
+            <div class="chef-content">
+                <div class="chef-image">
+                    <img src="https://hortus-toulouse.fr/wp-content/uploads/2022/10/Clement_lessoud-restaurant_hortus_toulouse-03b-e1666458618947.jpg" alt="Chef Clément Lessoud">
+                </div>
+                <div class="chef-text">
+                    <h3>Clément Lessoud</h3>
+                    <p>Après avoir exercé auprès des plus grands chefs étoilés du Sud-Ouest de la France et de Londres, c'est à Marseille que Clément Lessoud a trouvé sa voie culinaire. Au sein du restaurant Une table au sud, dirigé par le chef étoilé Ludovic Turac, il a pu exprimer sa créativité et développer sa sensibilité à la cuisine méditerranéenne.</p>
+                    <p>Ces expériences ont marqué un tournant dans sa carrière et ont influencé sa manière de concevoir la cuisine, en mettant l'accent sur la valorisation des produits locaux, la simplicité et la justesse des saveurs, ainsi que sur la convivialité et le partage des plats.</p>
+                    <p>Aujourd'hui, Clément Lessoud poursuit cette démarche au sein de son propre restaurant, en proposant une cuisine de terroir créative et responsable, fidèle à ses valeurs. Son équipe, enrichie par leurs expériences passées dans des restaurants étoilés, partage cette même sensibilité et cette même vision de ce que représente un repas au restaurant : une expérience unique.</p>
+                    <p>"Notre cuisine est un hommage aux producteurs locaux qui travaillent avec passion. Chaque plat est une histoire que nous voulons partager avec nos convives."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section menu-section" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Menus</h2>
+            </div>
+            <div class="menu-tabs">
+                <button class="menu-tab active" data-tab="midi">Le Midi</button>
+                <button class="menu-tab" data-tab="abysse">Abysse</button>
+                <button class="menu-tab" data-tab="premices">Prémices</button>
+                <button class="menu-tab" data-tab="odyssee">L'Odyssée</button>
+            </div>
+            
+            <div class="menu-items active" id="midi-menu">
+                <div class="menu-category">
+                    <h4>Menu Découverte - 32€</h4>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Pissaladière revisitée</h5>
+                            <div class="menu-item-description">Pomme de terre crémeuse, câpres, anchois, oignon confit</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Canard Kriaxera du Pays Basque</h5>
+                            <div class="menu-item-description">Caponata d'aubergine aux agrumes, jus réduit</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Abricot du Roussillon</h5>
+                            <div class="menu-item-description">Romarin, noyau de mahaleb, sorbet lait d'amande</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-items" id="abysse-menu">
+                <div class="menu-category">
+                    <h4>Menu Abysse - 60€</h4>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Amuse-bouche</h5>
+                            <div class="menu-item-description">Sélection de petites bouchées inspirées du Sud</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Tartare de bar de ligne</h5>
+                            <div class="menu-item-description">Agrumes de Corse, fenouil mariné, huile d'olive de Nyons</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Ravioles de Royan</h5>
+                            <div class="menu-item-description">Bouillon de champignons des bois, truffe noire du Quercy</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Filet de lotte rôtie</h5>
+                            <div class="menu-item-description">Purée de topinambour, copeaux de jambon de Bayonne</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Fromages d'Occitanie</h5>
+                            <div class="menu-item-description">Sélection affinée par notre fromager partenaire</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Dessert du moment</h5>
+                            <div class="menu-item-description">Création originale du pâtissier selon la saison</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-items" id="premices-menu">
+                <div class="menu-category">
+                    <h4>Menu Prémices - 63€</h4>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Accueil gourmand</h5>
+                            <div class="menu-item-description">Mise en bouche signature et cocktail de bienvenue</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Foie gras de canard des Landes</h5>
+                            <div class="menu-item-description">Chutney de figues noires, pain d'épices maison</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Saint-Jacques de Bretagne</h5>
+                            <div class="menu-item-description">Crème de potimarron, noisettes torréfiées</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Agneau de lait des Pyrénées</h5>
+                            <div class="menu-item-description">Tian de légumes du soleil, jus réduit au thym</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Assiette de fromages</h5>
+                            <div class="menu-item-description">Sélection de fromages affinés de la région</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Dessert signature</h5>
+                            <div class="menu-item-description">Variation sur le chocolat et la fleur d'oranger</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-items" id="odyssee-menu">
+                <div class="menu-category">
+                    <h4>Menu L'Odyssée - 90€</h4>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Accueil gastronomique</h5>
+                            <div class="menu-item-description">Sélection de mises en bouche et cocktail signature</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Caviar d'Aquitaine</h5>
+                            <div class="menu-item-description">Blini de sarrasin, crème fraîche de brebis</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Turbot sauvage rôti</h5>
+                            <div class="menu-item-description">Artichaut barigoule, citron confit, olives de Nice</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Ris de veau des Pyrénées</h5>
+                            <div class="menu-item-description">Morilles printanières, émulsion au vin jaune</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Pigeon de Gascogne</h5>
+                            <div class="menu-item-description">Croustillant de foie gras, chou rouge confit</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Fromages d'exception</h5>
+                            <div class="menu-item-description">Sélection rare de fromages affinés par nos soins</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Prélude au dessert</h5>
+                            <div class="menu-item-description">Création fraîcheur selon l'inspiration du chef</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Grand dessert</h5>
+                            <div class="menu-item-description">Composition élaborée autour des fruits de saison</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">
+                            <h5>Mignardises</h5>
+                            <div class="menu-item-description">Sélection de douceurs pour conclure le repas</div>
+                        </div>
+                        <div class="menu-item-price"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <p><em>Menu enfant possible, à définir avec le Chef - 18€</em></p>
+                <p><em>Pour toute demande particulière ou allergie, merci de nous en faire part lors de votre réservation.</em></p>
+                <p><em>Nous ne sommes pas en mesure de servir les menus sans gluten ou sans lactose.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galerie</h2>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://hortus-toulouse.fr/wp-content/uploads/2024/05/Hortus-restaurant-toulouse-1653.jpg" alt="Plat signature Hortùs">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://hortus-toulouse.fr/wp-content/uploads/2024/05/Hortus-restaurant-toulouse-1661.jpg" alt="Présentation culinaire">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://hortus-toulouse.fr/wp-content/uploads/2024/05/Hortus-restaurant-toulouse-1644.jpg" alt="Salle du restaurant">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://hortus-toulouse.fr/wp-content/uploads/2022/10/Clement_lessoud-restaurant_hortus_toulouse-03b-e1666458618947.jpg" alt="Chef Clément Lessoud au travail">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://hortus-toulouse.fr/wp-content/uploads/2022/10/Hortus-Toulouse.jpg" alt="Détail de présentation">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://hortus-toulouse.fr/wp-content/uploads/2024/05/Hortus-restaurant-toulouse-1670.jpg" alt="Ambiance du restaurant">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section class="reservation-section" id="reservation">
+        <div class="container">
+            <div class="section-title">
+                <h2>Réservation</h2>
+            </div>
+            <div class="reservation-form">
+                <form id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" class="form-control" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Votre email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Votre numéro" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Nombre de personnes</label>
+                            <select id="guests" class="form-control" required>
+                                <option value="">Sélectionnez</option>
+                                <option value="1">1 personne</option>
+                                <option value="2">2 personnes</option>
+                                <option value="3">3 personnes</option>
+                                <option value="4">4 personnes</option>
+                                <option value="5">5 personnes</option>
+                                <option value="6">6 personnes</option>
+                                <option value="7">7 personnes</option>
+                                <option value="8">8 personnes</option>
+                                <option value="9">Groupe (+8)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Heure</label>
+                            <select id="time" class="form-control" required>
+                                <option value="">Sélectionnez</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="19:30">19:30</option>
+                                <option value="20:00">20:00</option>
+                                <option value="20:30">20:30</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="menu">Menu souhaité</label>
+                        <select id="menu" class="form-control">
+                            <option value="">Sélectionnez (optionnel)</option>
+                            <option value="midi">Le Midi (32€)</option>
+                            <option value="abysse">Abysse (60€)</option>
+                            <option value="premices">Prémices (63€)</option>
+                            <option value="odyssee">L'Odyssée (90€)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Demandes particulières / Allergies</label>
+                        <textarea id="notes" class="form-control" rows="3" placeholder="Merci de nous préciser toute demande particulière ou allergie"></textarea>
+                    </div>
+                    <div class="form-group" style="margin-top: 30px;">
+                        <button type="submit" class="btn" style="width: 100%;">Réserver maintenant</button>
+                    </div>
+                    <p style="font-size: 12px; margin-top: 20px; opacity: 0.8;">
+                        Une empreinte bancaire vous sera demandée pour toute réservation. Cette somme ne sera débitée qu'en cas de non présentation ou annulation tardive.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Hortùs</h4>
+                    <p>Restaurant gastronomique à Toulouse, spécialisé dans la "Cuisine des Suds" - une interprétation moderne et responsable des traditions culinaires du Sud de la France.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>17 Rue Croix-Baragnon, 31000 Toulouse</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+33 5 XX XX XX XX</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@hortus-toulouse.fr</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Horaires</h4>
+                    <ul class="opening-hours">
+                        <li>
+                            <span>Lundi</span>
+                            <span>12h-13h30 / 19h30-21h</span>
+                        </li>
+                        <li>
+                            <span>Mardi</span>
+                            <span>12h-13h30 / 19h30-21h</span>
+                        </li>
+                        <li>
+                            <span>Mercredi</span>
+                            <span>12h-13h30 / 19h30-21h</span>
+                        </li>
+                        <li>
+                            <span>Jeudi</span>
+                            <span>12h-13h30 / 19h30-21h</span>
+                        </li>
+                        <li>
+                            <span>Vendredi</span>
+                            <span>12h-13h30 / 19h30-21h</span>
+                        </li>
+                        <li>
+                            <span>Samedi</span>
+                            <span>Fermé</span>
+                        </li>
+                        <li>
+                            <span>Dimanche</span>
+                            <span>Fermé</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hortùs. Tous droits réservés. | Conçu avec passion pour la gastronomie</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Menu tabs
+        const menuTabs = document.querySelectorAll('.menu-tab');
+        const menuItems = document.querySelectorAll('.menu-items');
+        
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs and menu items
+                menuTabs.forEach(t => t.classList.remove('active'));
+                menuItems.forEach(m => m.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding menu
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId + '-menu').classList.add('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const bookingForm = document.getElementById('bookingForm');
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Merci pour votre réservation ! Nous vous contacterons sous peu pour confirmation.');
+                this.reset();
+            });
+        }
+        
+        // Set min date for reservation (today)
+        const dateInput = document.getElementById('date');
+        if (dateInput) {
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            dateInput.min = `${yyyy}-${mm}-${dd}`;
+        }
+    </script>
+</body>
+</html>
